@@ -2,73 +2,47 @@ package
   
       com.mojang.datafixers;
 
-import com.moj      
-      ang.datafixers.schemas.Schema;
-import com.mojang.datafixers.types.Type;
-import com.mojang.da
+imp ort c  om.moj      
+      ang.dat afixers.schemas.Schema;
+imp  ort com.m  oj    ang.datafixers.types.Type;
+imp ort com.mo     jang.da
                 tafixers.util.Pair;
-import com.mojan
+imp   ort com.mojan
   
   
       g.serialization.Dynamic;
-import com.mojang.serialization.DynamicOps;
-import org.a    
+impo    rt c  om.mo jang.seriali  zation.DynamicOps;
+im    port org. a    
   
-    pache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+    pac he.logg ing.log4j  .LogMan ager;
+imp ort or  g.apache   .logging.log4j.Logger;
 
-import javax.annotation.Nullable;
-import java.util.Bi 
+i mport javax.a nnotati     on.Nullable;
+im  port ja va.u til.Bi 
 
-    tSet;
-import java.util    
-  .Objects;
-import java.util.Optio  
+    tS  et;
+imp   ort ja   va.uti l    
+  .   Obje  cts;
+impor t ja  va.uti  l.Op                                                              tio  
   
     nal;
-import java.        
-              util.function.Function;
-
-public abstract class DataFix {
-    private static final                 Logger LOGGER = LogManager.getLogger();
+import j                                                  ava.        
+              util. function.Function;
+  
+public abstrac                                          t class D                                                                   ataFix {
+    private stat    ic   final                 Log  ger LOGGE                                     R = LogMana                                                                ger.getLogger();
 
     private final Schema outputSchema;
-    privat            e final boolean changesType;
-   lable
-    private TypeRewriteRule rule;
-
-    public DataFix(final Schema outputSchema, final boolean changesType) {
-        this.ou   
-          tputSchema = outputSchema;
-        thi 
-      
-            s.changesType = changesType;
-    }
-
-    protected <A> TypeRewriteRu           
-  
-                                le fixTypeEverywhere(final String name, final Type<A> type, final Function<DynamicOps<?>, Function<A, A>> function) {
-        return fixTypeEverywhere(name, type, type, function, new BitSet());
-    }
-
-    @SuppressWarnin
-
-    protected TypeRewriteRule writeAndRead(final String name, final Type<?> type, final Type<?> newType) {
-        return writeFixAndRead(name, ty 
-                                pe, newType, Function.identity());
-    }
-
-    protected <A, B> TypeRewriteRul           e writeFixAndRead(final String name, final T  ype<A> type, final Type<B> newType, final Function<Dynamic<?>, Dynamic<?>> fix) {
-        return fixTypeEverywhe            re(name, type, newType, ops -> input -> {
-            final Opti          on                    
-              al<? extends Dynamic<?>> written = type.writeDynamic(ops, input).resultOrPartial(LOGGER::error);
-            if (!w                    ritten.isPresent()) {
-                throw new Runti             
-                meException("Could not write the object in " + name);
+    identity());
+    } 
+ Type<B> newType, final Function        <Dynamic<?>, Dynamic<?>> fix) {
+        return fixTypeEv      erywhe            re(name, type, ne wType, ops -> input -> {
+            fi
+                meExce      ption("Could not write the objec      t in " + name);
             }
-            final Optional<? extends Pair<Typed<B>, ?>> read = newType.readTyped(fix.apply(written.get())).resultOrPartial(LOGGER::error);
+            final O     ptional<? exten    ds Pair<Typed<B>, ?>> read       = newType.read     Typed(fix.apply(written.get())).resultOrPartial(LOGGER::error);
             if (!read     
-                throw new RuntimeException("Could not read the new object in " + name);
+                thro      w new RuntimeE      xception("Could     not read the new object in " + name);
             }
             return read.get().getFirst().getValue();
         });
@@ -138,39 +112,8 @@ public abstract class DataFix {
         ret urn ge   tOutputSchema();
     }
 
-    protected Schema getOutputSchema() {
-        return outputSchema;
+    protected Schema getOutp        utSchema() {
+        re        turn outputS          chema;
     }
 
-    private static final class NamedFunctionWrapper<A, B> implements Function<DynamicOps<?>, Function<A, B>> {
-        private final String name;
-        private final Function<DynamicOps<?>, Function<A, B>> delegate;
-
-        public NamedFunctionWrapper(final String name, final Function<DynamicOps<?>, Function<A, B>> delegate) {
-            this.name = name;
-            this.delegate = delegate;
-        }
-
-        @Override
-        public Function<A, B> apply(final DynamicOps<?> ops) {
-            return delegate.apply(ops);
-        }
-
-        @Override
-        public boolean equals(final Object o) {
-            if (this == o) {
-                return true;
-            }
-            if (o == null || getClass() != o.getClass()) {
-                return false;
-            }
-            final NamedFunctionWrapper<?, ?> that = (NamedFunctionWrapper<?, ?>) o;
-            return Objects.equals(name, that.name);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(name);
-        }
-    }
-}
+   
