@@ -3,7 +3,7 @@
 this is a cool minecraft event with a ton of creators
 
 
-this bot is also built to be ran with heroku! Tutorial [here](https://www.youtube.com/watch?v=BPvg9bndP1U)
+this event is also built to be ran with heroku! Tutorial [here](https://www.youtube.com/watch?v=BPvg9bndP1U)
 and you're good to go! Enjoy your own retro rivals event!
 
 
