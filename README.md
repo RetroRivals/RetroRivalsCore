@@ -7,7 +7,7 @@ this event is also built to be ran with heroku! Tutorial [here](https://www.yout
 and you're good to go! Enjoy your own retro rivals event!
 
 
-Made <sup><sup><sup>not</sup></sup></sup> using ![Postgres Logo](https://github.com/pikaninja/RoboDannyEnhcanced/blob/Assets/postgreSQL.png)
+Made using ![Postgres Logo](https://github.com/pikaninja/RoboDannyEnhcanced/blob/Assets/postgreSQL.png)
 
 
 # Sponsors
