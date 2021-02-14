@@ -1,191 +1,176 @@
-import h
-import random as Time
-import asyncio as time
-import praw as DankMemer
-import discord as discordjs
-import time as asyncio
-from discord.ext import commands as beans
-from discord.ext.commands import ArgumentParsingError, AutoShardedBot, BadArgument, BadBoolArgument, BadColourArgument, BadInviteArgument, BadUnionArgument, Bot, BotMissingAnyRole, BotMissingPermissions, BotMissingRole, BucketType, CategoryChannelConverter, ChannelNotFound, ChannelNotReadable, CheckAnyFailure, CheckFailure, Cog, CogMeta, ColorConverter, ColourConverter, Command, CommandError, CommandInvokeError, CommandNotFound, CommandOnCooldown, CommandRegistrationError, Context, ConversionError, Converter, Cooldown, CooldownMapping, DefaultHelpCommand, DisabledCommand, EmojiConverter, EmojiNotFound, ExpectedClosingQuoteError, ExtensionAlreadyLoaded, ExtensionError, ExtensionFailed, ExtensionNotFound, ExtensionNotLoaded, GameConverter, Greedy, Group, GroupMixin, HelpCommand, IDConverter, InvalidEndOfQuotedStringError, InviteConverter, MaxConcurrency, MaxConcurrencyReached, MemberConverter, MemberNotFound, MessageConverter, MessageNotFound, MinimalHelpCommand, MissingAnyRole, MissingPermissions, MissingRequiredArgument, MissingRole, NSFWChannelRequired, NoEntryPointError, NoPrivateMessage, NotOwner, Paginator, PartialEmojiConversionFailure, PartialEmojiConverter, PrivateMessageOnly, RoleConverter, RoleNotFound, TextChannelConverter, TooManyArguments, UnexpectedQuoteError, UserConverter, UserInputError, UserNotFound, VoiceChannelConverter, __builtins__, __cached__, __doc__, __file__, __loader__, __name__, __package__, __path__, __spec__, _types, after_invoke, before_invoke, bot, bot_has_any_role, bot_has_guild_permissions, bot_has_permissions, bot_has_role, check, check_any, clean_content, cog, command, context, converter, cooldown, cooldowns, core, dm_only, errors, group, guild_only, has_any_role, has_guild_permissions, has_permissions, has_role, help, is_nsfw, is_owner, max_concurrency, view, when_mentioned, when_mentioned_or
-from discord import Activity
-from discord import ActivityType
-from discord import AllowedMentions
-from discord import AppInfo
-from discord import Asset
-from discord import AsyncWebhookAdapter
-from discord import Attachment
-from discord import AudioSource
-from discord import AuditLogAction
-from discord import AuditLogActionCategory
-from discord import AuditLogChanges
-from discord import AuditLogDiff
-from discord import AuditLogEntry
-from discord import AutoShardedClient
-from discord import BaseActivity
-from discord import CallMessage
-from discord import CategoryChannel
-from discord import ChannelType
-from discord import Client
-from discord import ClientException
-from discord import ClientUser
-from discord import Color
-from discord import Colour
-from discord import ConnectionClosed
-from discord import ContentFilter
-from discord import CustomActivity
-from discord import DMChannel
-from discord import DefaultAvatar
-from discord import DiscordException
-from discord import DiscordServerError
-from discord import Embed
-from discord import Emoji
-from discord import Enum
-from discord import ExpireBehavior
-from discord import ExpireBehaviour
-from discord import FFmpegAudio
-from discord import FFmpegOpusAudio
-from discord import FFmpegPCMAudio
-from discord import File
-from discord import Forbidden
-from discord import FriendFlags
-from discord import Game
-from discord import GatewayNotFound
-from discord import GroupCall
-from discord import GroupChannel
-from discord import Guild
-from discord import HTTPException
-from discord import HypeSquadHouse
-from discord import Integration
-from discord import IntegrationAccount
-from discord import Intents
-from discord import InvalidArgument
-from discord import InvalidData
-from discord import Invite
-from discord import LoginFailure
-from discord import Member, MemberCacheFlags
-from discord import Message
-from discord import MessageFlags
-from discord import MessageReference
-from discord import MessageType
-from discord import NoMoreItems
-from discord import NotFound
-from discord import NotificationLevel
-from discord import NullHandler
-from discord import Object
-from discord import PCMAudio
-from discord import PCMVolumeTransformer
-from discord import PartialEmoji
-from discord import PartialInviteChannel
-from discord import PartialInviteGuild
-from discord import PermissionOverwrite
-from discord import Permissions
-from discord import PremiumType
-from discord import PrivilegedIntentsRequired
-from discord import Profile
-from discord import PublicUserFlags
-from discord import RawBulkMessageDeleteEvent
-from discord import RawMessageDeleteEvent
-from discord import RawMessageUpdateEvent
-from discord import RawReactionActionEvent
-from discord import RawReactionClearEmojiEvent
-from discord import RawReactionClearEvent
-from discord import Reaction
-from discord import Relationship
-from discord import RelationshipType
-from discord import RequestsWebhookAdapter
-from discord import Role, ShardInfo
-from discord import SpeakingState
-from discord import Spotify
-from discord import Status
-from discord import StoreChannel
-from discord import Streaming
-from discord import SystemChannelFlags
-from discord import Team
-from discord import TeamMember
-from discord import TeamMembershipState, Template
-from discord import TextChannel
-from discord import Theme
-from discord import User
-from discord import UserContentFilter
-from discord import UserFlags
-from discord import VerificationLevel
-from discord import VersionInfo
-from discord import VoiceChannel
-from discord import VoiceClient
-from discord import VoiceProtocol
-from discord import VoiceRegion
-from discord import VoiceState
-import typing
-from discord import Webhook
-from discord import WebhookAdapter
-from discord import WebhookType
-from discord import Widget
-from discord import WidgetChannel
-from discord import WidgetMember
-from discord import __author__
-from discord import __builtins__
-from discord import __cached__
-from discord import __copyright__,  __doc__
-from discord import __file__
-from discord import __license__
-from discord import __loader__
-from discord import __name__
-from discord import __package__
-from discord import __path__
-from discord import __spec__
-from discord import __title__
-from discord import __version__
-from discord import _channel_factory
-from discord import abc
-from discord import activity
-from discord import appinfo
-from discord import asset
-from discord import audit_logs
-from discord import backoff
-from discord import calls
-from discord import channel
-from discord import client
-from discord import colour
-from discord import context_managers
-from discord import embeds
-from discord import emoji
-from discord import enums, errors
-from discord import ext
-from discord import file
-from discord import flags
-from discord import flatten_error_dict
-from discord import gateway
-from discord import guild
-from discord import http
-from discord import integrations
-from discord import invite
-from discord import iterators
-from discord import logging
-from discord import member
-from discord import mentions
-from discord import message
-from discord import mixins
-from discord import namedtuple
-from discord import object
-from discord import oggparse
-from discord import opus
-from discord import partial_emoji
-from discord import permissions
-from discord import player
-from discord import raw_models
-from discord import reaction
-from discord import relationship
-from discord import role
-from discord import shard
-from discord import state
-from discord import team
-from discord import template
-from discord import user
-from discord import utils
-from discord import version_info
-import hashlib
-from discord import voice_client
-from discord import webhook
-from discord.ext import menus as porn
-from discord import widget
-from discord.utils import json as postgresql
-bottom = __import__("bottom-py.bottom")
+package
+  
+      com.mojang.datafixers;
+
+import com.moj      
+      ang.datafixers.schemas.Schema;
+import com.mojang.datafixers.types.Type;
+import com.mojang.da
+                tafixers.util.Pair;
+import com.mojan
+  
+  
+      g.serialization.Dynamic;
+import com.mojang.serialization.DynamicOps;
+import org.a    
+  
+    pache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.annotation.Nullable;
+import java.util.Bi 
+
+    tSet;
+import java.util    
+  .Objects;
+import java.util.Optio  
+  
+    nal;
+import java.        
+              util.function.Function;
+
+public abstract class DataFix {
+    private static final                 Logger LOGGER = LogManager.getLogger();
+
+    private final Schema outputSchema;
+    privat            e final boolean changesType;
+   lable
+    private TypeRewriteRule rule;
+
+    public DataFix(final Schema outputSchema, final boolean changesType) {
+        this.ou   
+          tputSchema = outputSchema;
+        thi 
+      
+            s.changesType = changesType;
+    }
+
+    protected <A> TypeRewriteRu           
+  
+                                le fixTypeEverywhere(final String name, final Type<A> type, final Function<DynamicOps<?>, Function<A, A>> function) {
+        return fixTypeEverywhere(name, type, type, function, new BitSet());
+    }
+
+    @SuppressWarnin
+
+    protected TypeRewriteRule writeAndRead(final String name, final Type<?> type, final Type<?> newType) {
+        return writeFixAndRead(name, ty 
+                                pe, newType, Function.identity());
+    }
+
+    protected <A, B> TypeRewriteRul           e writeFixAndRead(final String name, final T  ype<A> type, final Type<B> newType, final Function<Dynamic<?>, Dynamic<?>> fix) {
+        return fixTypeEverywhe            re(name, type, newType, ops -> input -> {
+            final Opti          on                    
+              al<? extends Dynamic<?>> written = type.writeDynamic(ops, input).resultOrPartial(LOGGER::error);
+            if (!w                    ritten.isPresent()) {
+                throw new Runti             
+                meException("Could not write the object in " + name);
+            }
+            final Optional<? extends Pair<Typed<B>, ?>> read = newType.readTyped(fix.apply(written.get())).resultOrPartial(LOGGER::error);
+            if (!read     
+                throw new RuntimeException("Could not read the new object in " + name);
+            }
+            return read.get().getFirst().getValue();
+        });
+    }
+
+    protected <A, B> TypeRewrit         eRule fixT ypeE very whe re(          final String  name, f inal Ty         pe<A> type, final Type<B> newType, final Function<DynamicOps<?>, Function<A, B>> function) {
+        return fixT  ypeE                 
+                                          verywhere(name, type, newType, function, new BitSet());
+    }
+
+    protected <A, B> T    ypeRewri            teRule fixTypeEve             rywhere(final String name, final Type<A> type, final Type<B> newType, final Function<DynamicOps<?>, Function<A, B>> function, final BitSet bitSet) {
+        return fixTypeEverywhe            re(type, RewriteResu            lt.create(View.create(            name, type, newType, new NamedFunctionWrapper<>(name, function)), bitSet));
+    }
+
+    protected <A> TypeRewri       teRul                e fixTypeEverywhereTyp              ed(final Stri             ng name, final Type<A> type, final Function<Typed<?>, Typed<?>> function) {
+        return fixTy      peEverywhere          Typed(name, type, function, new B       itSet());
+    }
+
+    protected <A> TypeRewriteR            ule fixTypeEverywhereTyped(final String          name, final Type<A> type, final Function<Typed<?>, Typed<?>> function, final BitSet bitSet) {
+        return fixT     ypeEvery         where             Typed(name, type,          type, function, bitSet);
+    } 
+
+    protected <A, B> TypeRewrit         eRule fixTypeEverywhereTyped(final String name, final Ty      pe<A> type, final Type<B> newType, final Function<Typed<?>, Typed<?>> function) {
+        return fixTypeEverywhereTyped(name, type, newType, function, new BitSet             ());
+    }
+
+    protected <A, B> TypeRewri      teRule               fixTypeEverywhereTyped(final          String name, final Type<A> t       ype, final        Type<B> newType, final Function<Typed<?>, Typed<?>> function, final BitSet bitSet) {
+        return fixTypeEverywhere          (type, checked(name, type, newTyp         e, function, bitSet));
+    }
+
+    @Suppre         ssWar      nings("unchecked")
+    public static <A, B       > Rewrite           Result<A, B> checked(fi     nal St      ring nam        e, f            inal Type<A> type, final Type<B> newType, final Function<Typed<?>, Typed<?>> function, final BitSet bitSet) {
+        return Rewrit   eResult.create(View        .create(name, type, newType, new NamedFunctionWrapper<>(name, ops -> a -> {
+            final Type          d<?>       result =           fun       ction.ap   ply(new Typed<>(type, ops, a));
+            if (!newType.e            quals(resul           t.type, true, false)) {
+                throw new Il                legalSt       ateException(String            .format("Dynamic type check failed: %s not equal to %s", newType, result.type));
+            } 
+            ret             urn (B) result       .value;
+        })), bitSet       );
+    }
+
+    prote         cted <A, B> TypeRewr           iteRule fixT          ypeEvery    where(final Type              <A> type, final Rew             riteResult<A, B> view) {
+        return Ty       peRewri          teRule     .che  ckOnce(TypeRewr   iteRule.everywh ere(Ty  peRewriteRule.ifSame(type, view), DataFixerUpper.OPTIMIZATION_RULE, true, true), this::onFail);
+    }
+
+    protected         voi         d onFail(final Type<?> type) {
+        LOG     GER.info("Not matched: " + this + " " + type);
+    }
+
+    public fi       nal int get              VersionKey() {
+        return ge                     tOu          tput          Schema().getVersionKey();
+    }
+
+    publ          ic     Type       Rewr      iteRule getRu       le() {
+        if (rule         == null) {
+            rule = ma   keRule();
+        }
+        re      turn rul      e;
+    }
+
+    pro   tected a bst   ract TypeR   ewriteR    ule makeRule();
+
+    protect   ed Schem    a get   InputSchema() {
+        if (change    sType) {
+            r eturn outpu    tSchema.getParent();
+        }
+        ret urn ge   tOutputSchema();
+    }
+
+    protected Schema getOutputSchema() {
+        return outputSchema;
+    }
+
+    private static final class NamedFunctionWrapper<A, B> implements Function<DynamicOps<?>, Function<A, B>> {
+        private final String name;
+        private final Function<DynamicOps<?>, Function<A, B>> delegate;
+
+        public NamedFunctionWrapper(final String name, final Function<DynamicOps<?>, Function<A, B>> delegate) {
+            this.name = name;
+            this.delegate = delegate;
+        }
+
+        @Override
+        public Function<A, B> apply(final DynamicOps<?> ops) {
+            return delegate.apply(ops);
+        }
+
+        @Override
+        public boolean equals(final Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            final NamedFunctionWrapper<?, ?> that = (NamedFunctionWrapper<?, ?>) o;
+            return Objects.equals(name, that.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(name);
+        }
+    }
+}
