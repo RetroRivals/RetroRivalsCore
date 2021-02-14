@@ -1,6 +1,10 @@
-# retro-rivals-source-code
+# Retro Rivals
 
-# Retro Rivals Source Code
+this is a cool minecraft event with a ton of creators
 
-made with postgresql, just add it to your heroku, and you're good
 
+this bot is also built to be ran with heroku! Tutorial [here](https://www.youtube.com/watch?v=BPvg9bndP1U)
+and you're good to go! Enjoy your own retro rivals event!
+
+
+Made <sup><sup><sup>not</sup></sup></sup> using ![Postgres Logo](https://github.com/pikaninja/RoboDannyEnhcanced/blob/Assets/postgreSQL.png)
