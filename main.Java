@@ -1,5 +1,3 @@
-import h.h.h.h..h.h.h.h.h.h.h.h.h.h..h
-
 package
   
       com.mojang.                                       datafixers;
